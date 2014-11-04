@@ -17,12 +17,12 @@ pkginstall octave
 sudo pip install -r $REPO_DIR/manage/requirements.txt
 #######################################
 log "Configure SOAPLib to autostart"
-sudo cat $REPO_DIR/manage/initd.vphop_nmsrisk > /etc/init.d/vphop_nmsrisk
-sudo chmod +x /etc/init.d/vphop_nmsrisk
-sudo update-rc.d vphop_nmsrisk defaults
+sudo cat $REPO_DIR/manage/initd.vphop_nmsloads > /etc/init.d/vphop_nmsloads
+sudo chmod +x /etc/init.d/vphop_nmsloads
+sudo update-rc.d vphop_nmsloads defaults
 #######################################
 log "Starting application"
-sudo service vphop_nmsrisk start
+sudo service vphop_nmsloads start
 #######################################
 log "Deconfigure Github Deployinator to autostart"
 sudo update-rc.d githubdeploy disable

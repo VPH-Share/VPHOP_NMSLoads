@@ -12,8 +12,8 @@ log "Stopping application"
 sudo service vphop_nmsrisk stop
 #######################################
 log "Deconfigure SOAPLib to autostart"
-sudo update-rc.d vphop_nmsrisk disable
-sudo rm /etc/init.d/vphop_nmsrisk
+sudo update-rc.d vphop_nmsloads disable
+sudo rm /etc/init.d/vphop_nmsloads
 #######################################
 log "Uninstalling SOAPlib Commandline Wrapper dependencies"
 sudo pip uninstall -r $REPO_DIR/manage/requirements.txt
