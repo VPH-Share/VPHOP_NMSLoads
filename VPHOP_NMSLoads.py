@@ -34,7 +34,7 @@ def create_response(out):
         r.stderr = out.std_err
     return r
 
-class VPHOP_NMSRisk(DefinitionBase):
+class VPHOP_NMSLoads(DefinitionBase):
     @soap(String, String, _returns=RegisterResponse)
     def register(self, input_file, output_path):
         output_file_1 = os.path.join(output_path, strftime("VPHOP_NMSLoads_%d_%m_%Y__%H_%M_%S")+'.txt')
