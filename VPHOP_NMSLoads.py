@@ -7,7 +7,7 @@ from soaplib.core.model.clazz import ClassModel
 from soaplib.core.server import wsgi
 from time import strftime
 
-CMD_STR = "myprocess.sh {output_file}"
+CMD_STR = "myprocess.sh {output_folder} {output_file}"
 
 class RegisterResponse(ClassModel):
     """Response object holds the commandline execution response"""
@@ -36,7 +36,7 @@ def create_response(out):
 
 class VPHOP_NMSLoads(DefinitionBase):
     @soap(String, String, _returns=RegisterResponse)
-    def register(self, input_file, output_path):
+    def register(self, input_folder, output_path):
         output_file_1 = os.path.join(output_path, strftime("VPHOP_NMSLoads_%d_%m_%Y__%H_%M_%S")+'.txt')
         ommand = CMD_STR.format(output_file_1=output_file_1)
         try:
