@@ -4,17 +4,8 @@
 %Il file LE_ME.lis contiene solo le coordinate di LE e ME
 %il file CH.lis ha solo le coordinate del centro della testa
 %dal builder si ottiene un file txt ricordarsi di cambiare estensione e mettere .lis
-%[LE_ME]=textread('LE_ME.lis')
-%[HJC]=textread('CH.lis')
-
-%fid=fopen('LE_ME.lis');
-%[LE_ME, count, errmsg]=fscanf(fid,'%f',[2,3]);
 
 LE_ME=load('LE_ME.lis');
-
-
-%fid_2=fopen('CH.lis');
-%[HJC]=fscanf(fid_2,'%f',[1,3]);
 
 HJC=load('CH.lis');
 
@@ -65,9 +56,7 @@ fclose (fid)
 %[HJC]=textread('CH.lis')
 %[HJC]=load('CH.lis')
 %HJC=[HJC(1,1);HJC(1,2);HJC(1,3)]
-%Legge la matrice MR_ISB_GLOBALE contenuta nel file MR_ISB_GLOBALE.lis
-%[MR_ISB_GLOBALE]=textread('MAT_ROT_ISB_GLOB.txt')
-%[MR_ISB_GLOBALE]=load('MAT_ROT_ISB_GLOB.txt')
+
 [MR_ISB_GLOBALE]=D;
 
 A2=[10*MR_ISB_GLOBALE(1,1)]
@@ -91,9 +80,7 @@ H=HJC(3,1)+F2
 KP_ISB=[HJC(1,1),HJC(2,1),HJC(3,1);
     W,Z,T;
     M,J,H]
-%salva la matrice KP_ISB
-%save('KP_ISB.txt','KP_ISB','-ASCII')
-%save('KP_ISB.txt','KP_ISB','-ascii')
+
 nomefile_output='KP_ISB.txt'
 fid=fopen(nomefile_output,'wt')
 for j=1:3
@@ -110,4 +97,3 @@ else
 end	
 end
 fclose (fid)
-
