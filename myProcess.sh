@@ -72,3 +72,10 @@ echo "./calc_forces_and_coord $outputFileName"
 echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
 echo '' 
 
+#removing tmp files stored locally
+rm OC_extracted_data.txt
+rm OC_extracted_data-weight.txt
+rm Head_Radius.lis
+rm LE_ME.lis
+rm CH.lis
+rm side_femur.lis
