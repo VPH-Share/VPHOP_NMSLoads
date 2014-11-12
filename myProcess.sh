@@ -9,9 +9,12 @@ echo '(MAT_ROT_ISB_GLOB-KP_ISB.m)'
 echo '***************************************************************************************************'
 echo ' '
 
+#local copy of the needed files
+cp $1/* . 
+
 octave ./MAT_ROT_ISB_GLOB-KP_ISB.m
 
-file1=$1/MAT_ROT_ISB_GLOB.txt
+file1=MAT_ROT_ISB_GLOB.txt
 
 if test ! -e $file1
 then
@@ -20,7 +23,7 @@ then
   exit 1
 fi
 
-file2=$1/KP_ISB.txt
+file2=KP_ISB.txt
 
 if test ! -e $file2
 then
@@ -39,8 +42,8 @@ echo Executing C++ aplication:
 echo '("calc_forces_and_coord")'
 echo '***************************************************************************************************'
 
-OC_L2data=$1/OC_extracted_data.txt
-OC_L2weight=$1/OC_extracted_data-weight.txt
+OC_L2data=OC_extracted_data.txt
+OC_L2weight=OC_extracted_data-weight.txt
 
 if test ! -e $OC_L2data
 then
@@ -61,7 +64,7 @@ then
   exit 1
 fi
 
-outputFileName=$1/NMS_Forces.txt
+outputFileName=NMS_Forces.txt
 echo outputFileName = $outputFileName
 echo "./calc_forces_and_coord $outputFileName"
 ./calc_forces_and_coord $outputFileName
