@@ -17,7 +17,7 @@ class RegisterResponse(ClassModel):
     stderr = String
     cwd = String
 
-    output_file_1 = String
+    output_file = String
 
     def __init__(self, command=None):
         self.command = command
@@ -37,7 +37,7 @@ def create_response(out):
 class VPHOP_NMSLoads(DefinitionBase):
     @soap(String, String, _returns=RegisterResponse)
     def register(self, input_folder, output_path):
-        output_file_1 = os.path.join(output_path, strftime("VPHOP_NMSLoads_%d_%m_%Y__%H_%M_%S")+'.txt')
+        output_file = os.path.join(output_path, strftime("VPHOP_NMSLoads_%d_%m_%Y__%H_%M_%S")+'.txt')
         ommand = CMD_STR.format(input_folder=input_folder, output_file_1=output_file_1)
         try:
             out = emissary.envoy.run(command)
