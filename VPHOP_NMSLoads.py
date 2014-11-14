@@ -42,7 +42,7 @@ class VPHOP_NMSLoads(DefinitionBase):
         try:
             out = emissary.envoy.run(command)
             r = create_response(out)
-            r.output_file_1 = output_file_1
+            r.output_file = output_file
             return r
         except OSError, e:
             pass
