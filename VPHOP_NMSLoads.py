@@ -7,7 +7,7 @@ from soaplib.core.model.clazz import ClassModel
 from soaplib.core.server import wsgi
 from time import strftime
 
-CMD_STR = "myprocess.sh {input_folder} {output_file}"
+CMD_STR = "./myProcess.sh {input_folder} {output_file}"
 
 class RegisterResponse(ClassModel):
     """Response object holds the commandline execution response"""
