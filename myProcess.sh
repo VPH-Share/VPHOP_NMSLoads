@@ -64,7 +64,7 @@ then
   exit 1
 fi
 
-outputFileName=NMS_Forces.txt
+outputFileName=$2
 echo outputFileName = $outputFileName
 echo "./calc_forces_and_coord $outputFileName"
 ./calc_forces_and_coord $outputFileName
