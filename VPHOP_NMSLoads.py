@@ -6,6 +6,7 @@ from soaplib.core.model.primitive import String, Integer
 from soaplib.core.model.clazz import ClassModel
 from soaplib.core.server import wsgi
 from time import strftime
+import shutil
 
 CMD_STR = "./myProcess.sh {input_folder} {output_file}"
 
@@ -39,6 +40,8 @@ class VPHOP_NMSLoads(DefinitionBase):
     def register(self, input_folder, output_path):
         output_file = os.path.join(output_path, strftime("VPHOP_NMSLoads_%d_%m_%Y__%H_%M_%S")+'.txt')
         command = CMD_STR.format(input_folder=input_folder, output_file=output_file)
+        shutil.copyfile('./MAT_ROT_ISB_GLOB.txt', os.path.join(output_path, 'MAT_ROT_ISB_GLOB.txt'))
+        shutil.copyfile('./KP_ISB.txt', os.path.join(output_path, 'KP_ISB.txt'))
         try:
             out = emissary.envoy.run(command)
             r = create_response(out)
